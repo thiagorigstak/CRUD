@@ -150,5 +150,3 @@ function edit(){
   
     closedb($database);
   }
-  
-?>

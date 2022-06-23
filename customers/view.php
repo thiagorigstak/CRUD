@@ -1,6 +1,6 @@
-<?php 
-	require_once('functions.php'); 
-	view($_GET['id']);
+<?php
+require_once('functions.php');
+view($_GET['id']);
 ?>
 
 <?php include(HEADER_TEMPLATE); ?>
@@ -27,9 +27,9 @@
 
 <div id="actions" class="row">
 	<div class="col-md-12">
-		<a href="#" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#edit-modal" data-json='<?php echo str_replace("/","",json_encode($customer)); ?>'><i class="fa fa-pencil"></i> Editar</a>
-	  <a href="index.php" class="btn btn-default">Voltar</a>
+		<a href="#" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#edit-modal" data-json='<?php echo str_replace("/", "", json_encode($customer)); ?>'><i class="fa fa-pencil"></i> Editar</a>
+		<a href="index.php" class="btn btn-default">Voltar</a>
 	</div>
 </div>
-<?php include"editmodal.php"; 	?>
+<?php include "editmodal.php"; 	?>
 <?php include(FOOTER_TEMPLATE); ?>
