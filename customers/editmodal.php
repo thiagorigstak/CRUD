@@ -44,7 +44,9 @@
 <script src="../js/jquery-3.6.0.js"></script>
 
 <script>
-    document.querySelector("#att").addEventListener("submit", (e) => {
+    /*     document.querySelector("#att").addEventListener("click", "#updatedata"(e) => {
+        e.preventDefault();
+        alert(cpf);
         console.log(document.querySelector("#cpf").value);
         var cpf = document.querySelector("#cpf").value;
         if (isNaN(cpf)) {
@@ -56,20 +58,37 @@
             document.querySelector("#validationcpf").classList.add("d-none");
             document.querySelector("#att").submit();
         }
-    })
+    }); */
 </script>
 
 <script>
-    $("#edit-modal").on("click", "#updatedata", function(evento) {
+    $("#edit-modal").on("submit", "#att", function(evento) {
         var data = $("#att").serialize();
-        $.ajax({
-            data: data,
-            type: "POST",
-            url: "edit.php",
-        });
+        var cpf = $("#cpf").val();
+        evento.preventDefault();
+        //alert(cpf);
+        if (!isNaN(cpf)) {
+            $.ajax({
+                data: data,
+                type: "POST",
+                url: "edit.php",
+                success: function(dataResult) {
+                    var dataResult = JSON.parse(dataResult);
+                    if (dataResult.statusCode == 200) {
+                        $('#edit-modal').modal('hide');
+                        //alert('Data updated successfully !');
+                        location.reload();
+                    } else {
+                        alert(dataResult);
+                    }
+                },
+            });
+        } else {
+            evento.preventDefault();
+            $("#validationcpf").removeClass("d-none")
+        }
+
         //evento.preventDefault();
-        $("#edit-modal").modal("hide");
-        location.reload();
         //alert("data update succesfully!");
     });
 </script>

@@ -18,12 +18,13 @@
       <label for="campo2">Telefone</label>
       <input type="text" class="form-control" maxlength="11" name="customer['telefone']">
     </div>
-  
-  <div id="actions" class="row">
-    <div class='float-end'>
-          <button type="submit" class="btn btn-primary">Salvar</button>
-          <button type="reset" class="btn btn-default" data-bs-dismiss="modal">Cancelar</button>
+
+    <div id="actions" class="row">
+      <div class='float-end'>
+        <button type="submit" class="btn btn-primary">Salvar</button>
+        <button type="reset" class="btn btn-default" data-bs-dismiss="modal">Cancelar</button>
+      </div>
     </div>
-  </div>
 </form>
-<?php  add(); // colocar acima do form faz com que os dados não sejam enviados?>
+<?php add(); // colocar acima do form faz com que os dados não sejam enviados
+?>
