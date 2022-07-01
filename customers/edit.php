@@ -1,4 +1,1 @@
-<?php 
-  require_once('functions.php'); 
-  edit();
-?>
+<?php require_once('functions.php'); edit();

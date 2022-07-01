@@ -76,7 +76,11 @@ function save($table = null, $data = null)
   $values = rtrim($values, ',');
   $sql = "INSERT INTO " . $table . " ($coluna)" . " VALUES" . "($values);";
   try {
-    $database->query($sql);
+    if ($database->query($sql)) {
+      echo json_encode(array("statusCode" => 200));
+    } else {
+      echo "Erro: " . $sql . "<br>";
+    }
   } catch (Exception $e) {
     closedb($database);
     echo $e;
@@ -125,10 +129,9 @@ function update($table = null, $id = 0, $data = null)
   $sql .= " WHERE id=" . $id . ";";
 
   try {
-    if ($database->query($sql)){
-      echo json_encode(array("statusCode"=>200));
-    }
-    else{
+    if ($database->query($sql)) {
+      echo json_encode(array("statusCode" => 200));
+    } else {
       echo "Erro: " . $sql . "<br>";
     }
   } catch (Exception $e) {
